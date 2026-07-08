@@ -3,7 +3,36 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{% if title %}{{ title }} &mdash; {% endif %}William Zhao&rsquo;s Portfolio</title>
+
+	{%- set metaTitle = title or site.name -%}
+	{%- set metaDesc = description or contributions or site.description -%}
+	{%- set metaImagePath = (page.url + cover) if cover else site.image -%}
+	{%- set metaImageUrl = site.url + metaImagePath -%}
+	{%- set metaUrl = site.url + page.url -%}
+	{%- set ogType = "article" if cover else "website" -%}
+
+	<title>{% if title %}{{ title }} &mdash; {% endif %}{{ site.name }}</title>
+	<meta name="description" content="{{ metaDesc }}">
+	<meta name="author" content="{{ site.author }}">
+	<meta name="theme-color" content="{{ site.themeColor }}">
+	<link rel="canonical" href="{{ metaUrl }}">
+
+	{# Open Graph — rich link previews (Discord, iMessage, LinkedIn, Slack, Facebook) #}
+	<meta property="og:type" content="{{ ogType }}">
+	<meta property="og:site_name" content="{{ site.name }}">
+	<meta property="og:title" content="{{ metaTitle }}">
+	<meta property="og:description" content="{{ metaDesc }}">
+	<meta property="og:url" content="{{ metaUrl }}">
+	<meta property="og:image" content="{{ metaImageUrl }}">
+	<meta property="og:image:alt" content="{{ metaTitle }}">
+	<meta property="og:locale" content="{{ site.locale }}">
+
+	{# Twitter / X card #}
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="{{ metaTitle }}">
+	<meta name="twitter:description" content="{{ metaDesc }}">
+	<meta name="twitter:image" content="{{ metaImageUrl }}">
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
