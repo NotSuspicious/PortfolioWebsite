@@ -1,0 +1,435 @@
+/* Design tokens — from Figma "Front Page" (1440px frame, 330px margins, 12 columns, 24px gutter) */
+:root {
+	--primary: #007BEE; /* primary brand color */
+	--accent: var(--primary); /* highlight & hover/interaction color */
+	--ink: #000;
+	--paper: #fff;
+	--gutter: 24px;
+	--content: 780px; /* 1440 - 2 * 330 */
+	--font-display: "Roboto Condensed", "Arial Narrow", sans-serif;
+	--font-body: "Roboto", "Helvetica Neue", sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: var(--paper);
+	color: var(--ink);
+	font-family: var(--font-body);
+}
+
+img,
+video,
+iframe {
+	max-width: 100%;
+}
+
+a {
+	color: inherit;
+}
+
+/* Text selection highlight uses the primary color */
+::selection {
+	background: var(--accent);
+	color: var(--paper);
+}
+
+::-moz-selection {
+	background: var(--accent);
+	color: var(--paper);
+}
+
+/* Page column: 780px of content = 330px margins on the 1440px design frame,
+   collapsing to 24px side margins on small screens */
+.page {
+	width: min(var(--content), 100% - 2 * var(--gutter));
+	margin-inline: auto;
+	padding: 128px 0 48px;
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}
+
+/* ===== Header ===== */
+.site-header {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.site-title {
+	margin: 0;
+	font-family: var(--font-display);
+	font-weight: 700;
+	font-size: clamp(32px, 6vw, 48px);
+	text-decoration: none;
+	color: inherit;
+}
+
+.accent {
+	color: var(--accent);
+}
+
+.site-nav {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px clamp(16px, 4vw, 54px);
+	font-size: clamp(16px, 2.5vw, 20px);
+}
+
+.site-nav a {
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.site-nav a:hover {
+	color: var(--accent);
+	text-decoration: underline;
+}
+
+.nav-primary {
+	justify-content: space-between;
+}
+
+/* ===== Section header ===== */
+.section {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}
+
+.section-header {
+	border-top: 1px solid var(--ink);
+	padding-top: 8px;
+}
+
+.section-header h2 {
+	margin: 0;
+	font-family: var(--font-display);
+	font-weight: 500;
+	font-size: clamp(28px, 5vw, 40px);
+	text-transform: uppercase;
+}
+
+/* ===== 12-column grid ===== */
+.grid {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	gap: var(--gutter);
+}
+
+/* ===== Experience card: 378x388 at full width (spans 6 of 12 columns) ===== */
+.experience-card {
+	grid-column: span 6;
+	display: flex;
+	flex-direction: column;
+	gap: var(--gutter); /* 24px between Title / Image / Description */
+}
+
+.experience-card .card-title {
+	margin: 0;
+	font-family: var(--font-display);
+	font-weight: 500;
+	font-size: clamp(24px, 4.5vw, 32px);
+	text-transform: uppercase;
+}
+
+.card-title a {
+	text-decoration: none;
+}
+
+.card-title a:hover {
+	color: var(--accent);
+}
+
+.card-thumb {
+	display: block;
+	border: 1px solid var(--ink);
+	aspect-ratio: 2 / 1; /* 378x189 thumbnail per Figma */
+	overflow: hidden;
+}
+
+.card-thumb img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.experience-card .card-desc {
+	font-weight: 300;
+	font-size: 14px;
+}
+
+.card-desc p {
+	margin: 0 0 1em;
+}
+
+.card-desc p:last-child {
+	margin-bottom: 0;
+}
+
+/* ===== Project card: 244x244 at full width (spans 4 of 12 columns) ===== */
+.project-card {
+	grid-column: span 4;
+	border: 1px solid var(--ink); /* card stroke */
+	display: flex;
+	flex-direction: column;
+}
+
+.project-card .card-title {
+	margin: 0;
+	min-height: 36px;
+	padding: 2px 5px;
+	display: flex;
+	align-items: center;
+	font-family: var(--font-display);
+	font-weight: 500;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+.project-card .card-thumb {
+	border-inline: 0;
+	aspect-ratio: 2 / 1; /* 244x122 thumbnail per Figma */
+}
+
+.project-card .card-desc {
+	flex: 1;
+	padding: 8px 6px;
+	font-weight: 300;
+	font-size: 12px;
+}
+
+/* ===== Hover interactions (primary color) ===== */
+.card-thumb,
+.project-card,
+.hl {
+	transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+/* Experience: thumbnail stroke turns primary on card hover */
+.experience-card:hover .card-thumb {
+	border-color: var(--accent);
+}
+
+/* Project: only the image stroke turns primary on hover (card border unchanged) */
+.project-card:hover .card-thumb {
+	border-color: var(--accent);
+}
+
+/* Skills, role & company: primary color + underline on hover */
+.hl:hover {
+	color: var(--accent);
+	text-decoration: underline;
+}
+
+/* Inline links (project cards, blog body) turn primary on hover */
+.card-desc a:hover,
+.post-content a:hover {
+	color: var(--accent);
+}
+
+/* ===== Post pages (experience & project blogs) ===== */
+/* Blog pages: brand title shrinks to 32px */
+.post .site-title {
+	font-size: 32px;
+}
+
+.post-header {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.post-header h1 {
+	margin: 0;
+	font-family: var(--font-display);
+	font-weight: 700;
+	font-size: clamp(32px, 6vw, 48px);
+	text-transform: uppercase;
+}
+
+.post-meta {
+	margin: 0;
+	font-weight: 300;
+	font-size: 14px;
+}
+
+.post-links {
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.post-links a {
+	display: inline-block;
+	border: 1px solid var(--ink);
+	padding: 4px 12px;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.post-links a:hover {
+	background: var(--accent);
+	border-color: var(--accent);
+	color: var(--paper);
+}
+
+.post-content {
+	font-size: 16px;
+	line-height: 1.6;
+}
+
+/* Bold words in blog markdown: primary color, Roboto bold */
+.post-content strong,
+.post-content b {
+	font-family: var(--font-body);
+	font-weight: 700;
+	color: var(--accent);
+}
+
+.post-content h2 {
+	border-top: 1px solid var(--ink);
+	padding-top: 8px;
+	margin: 48px 0 16px;
+	font-family: var(--font-display);
+	font-weight: 500;
+	font-size: clamp(24px, 4.5vw, 32px);
+	text-transform: uppercase;
+}
+
+.post-content img {
+	margin: 8px 0;
+}
+
+.post-content video {
+	border: 1px solid var(--ink);
+	margin: 8px 0;
+	display: block;
+	width: 100%;
+}
+
+.post-content iframe {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	height: auto;
+	border: 0;
+	margin: 8px 0;
+}
+
+/* ===== Media grid: 378px-wide embeds arranged 2-up (half of the 780 content column) ===== */
+.post-content .media-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 24px;
+	margin: 8px 0;
+	align-items: start;
+}
+
+.post-content .media-grid > * {
+	width: 100%;
+	height: auto;
+	margin: 0;
+}
+
+.post-content .media-grid iframe {
+	aspect-ratio: 16 / 9; /* default; per-embed override via inline style */
+	border: 0;
+	display: block;
+}
+
+/* ===== About section (780x388): image 5 cols, text 7 cols, 6px text padding ===== */
+.about {
+	align-items: stretch;
+}
+
+.about-image {
+	grid-column: span 5;
+	min-height: 388px;
+	overflow: hidden;
+}
+
+.about-image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.about-text {
+	grid-column: span 7;
+	min-height: 388px;
+	padding: 6px; /* 6px all sides per spec */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 14px;
+	font-size: 14px;
+}
+
+.about-text p {
+	margin: 0;
+}
+
+/* ===== Footer: © William Zhao (left) + personal nav row (right) ===== */
+.site-footer {
+	border-top: 1px solid var(--ink);
+	padding-top: 16px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px 24px;
+}
+
+.copyright {
+	margin: 0;
+	font-weight: 300; /* thin Roboto */
+	font-size: 14px;
+}
+
+/* ===== Responsive breakpoints ===== */
+@media (max-width: 900px) {
+	.page {
+		padding-top: 64px;
+	}
+
+	.project-card {
+		grid-column: span 6;
+	}
+}
+
+@media (max-width: 680px) {
+	.experience-card {
+		grid-column: span 12;
+	}
+
+	.about-image,
+	.about-text {
+		grid-column: span 12;
+	}
+
+	.about-image {
+		min-height: 320px;
+	}
+
+	.about-text {
+		min-height: 0;
+	}
+
+	.post-content .media-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 520px) {
+	.project-card {
+		grid-column: span 12;
+	}
+}

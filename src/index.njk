@@ -1,0 +1,72 @@
+---
+layout: base.njk
+---
+{# Figma: Front Page (1:2) #}
+<main class="page">
+	{# Figma: Header (2:272) — shared #}
+	{% include "site-header.njk" %}
+
+	{# Figma: Section Header (2:273) + Experiences (2:266) #}
+	<section class="section" id="experience">
+		<div class="section-header"><h2>Experience</h2></div>
+		<div class="grid">
+			{% for exp in collections.experiences %}
+			<article class="experience-card">
+				<h3 class="card-title"><a href="{{ exp.url }}">{{ exp.data.title }} ({{ exp.data.year }})</a></h3>
+				<a class="card-thumb" href="{{ exp.url }}">
+					<img src="{{ exp.url }}{{ exp.data.cover }}" alt="{{ exp.data.title }} cover art">
+				</a>
+				<div class="card-desc">
+					<p>Role: <strong class="hl">{{ exp.data.role }}</strong> at <strong class="hl">{{ exp.data.company }}</strong>.</p>
+					<p>Contributions: {{ exp.data.contributions }}</p>
+					<p>Skills: {% for skill in exp.data.skills %}<span class="hl">{{ skill }}</span>{% if not loop.last %}, {% endif %}{% endfor %}.</p>
+				</div>
+			</article>
+			{% endfor %}
+		</div>
+	</section>
+
+	{# Figma: Section Header (2:278) + Projects (2:267) #}
+	<section class="section" id="projects">
+		<div class="section-header"><h2>Projects</h2></div>
+		<div class="grid">
+			{% for project in collections.projects %}
+			<article class="project-card">
+				<h3 class="card-title"><a href="{{ project.url }}">{{ project.data.title }}</a></h3>
+				<a class="card-thumb" href="{{ project.url }}">
+					<img src="{{ project.url }}{{ project.data.cover }}" alt="{{ project.data.title }} preview">
+				</a>
+				<div class="card-desc">
+					<p>{{ project.data.description }}</p>
+					{% if project.data.links %}
+					<p>{% for link in project.data.links %}<a href="{{ link.url }}">{{ link.label }}</a>{% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
+					{% endif %}
+					<p>Skills: {% for skill in project.data.skills %}<span class="hl">{{ skill }}</span>{% if not loop.last %}, {% endif %}{% endfor %}.</p>
+				</div>
+			</article>
+			{% endfor %}
+		</div>
+	</section>
+
+	{# Figma: Section Header (10:138) + About (10:146) #}
+	<section class="section" id="about">
+		<div class="section-header"><h2>About</h2></div>
+		<div class="grid about">
+			<div class="about-image">
+				<img src="/about/media/AboutPhoto.jpg" alt="William Zhao on the Pohono Trail in Yosemite National Park">
+			</div>
+			<div class="about-text">
+				<p>I&rsquo;m a 21 year old <strong class="accent">graphics programmer</strong> and <strong class="accent">C++ software engineer</strong>.</p>
+				<p>I&rsquo;m passionate about the intersection between art and computing.</p>
+				<p>Some topics I&rsquo;ve worked on are Procedural Animation, Game Engine Development, Real-Time Fluid Simulation, and VR interaction.</p>
+				<p>I got my B.S in Computer Science at USC in 2026. I will get my M.S in Computer Science at USC in 2027.</p>
+				<p>Some awards that I or my projects have received are a 2024 Yugo BAFTA Longlist, PlayStation Career Paths Scholarship, and 2024 Milan Indie Awards - Best VR.</p>
+				<p>During my free time, I enjoy hiking, cooking, and watching movies. If you ever bump into me, tell me about your favorite movie!</p>
+				<p>The picture on the left was taken on the Pohono Trail in Yosemite National Park.</p>
+			</div>
+		</div>
+	</section>
+
+	{# Footer — shared #}
+	{% include "site-footer.njk" %}
+</main>
