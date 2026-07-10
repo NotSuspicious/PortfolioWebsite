@@ -2,8 +2,8 @@
 layout: post.njk
 title: 3D Qbert C++ Game Engine
 order: 3
-startDate: 2026-01-31
-endDate: 2026-05-01
+startDate: 2026-01-01
+endDate: 2026-05-31
 skills: [C++, Engine Development, SDL3, Shaders]
 type: Personal Project
 links:
