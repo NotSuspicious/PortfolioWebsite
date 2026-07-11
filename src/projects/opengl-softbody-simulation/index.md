@@ -1,7 +1,7 @@
 ---
 layout: post.njk
 title: C++ Soft Body Simulation
-order: 2
+order: 3
 startDate:
 endDate: 2026-01-01
 skills: [C++, OpenGL, Animation]

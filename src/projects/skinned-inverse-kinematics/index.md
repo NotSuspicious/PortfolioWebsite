@@ -1,7 +1,7 @@
 ---
 layout: post.njk
 title: Skinned Inverse Kinematics
-order: 1
+order: 2
 startDate:
 endDate: 2026-04-01
 skills: [C++, OpenGL, Animation]
