@@ -6,6 +6,25 @@ layout: base.njk
 	{# Figma: Header (2:272) — shared #}
 	{% include "site-header.njk" %}
 
+	{# Figma: Section Header (10:138) + About (10:146) #}
+	<section class="section" id="about">
+		<div class="section-header"><h2>About</h2></div>
+		<div class="grid about">
+			<div class="about-image">
+				<img src="/about/media/AboutPhoto.jpg" alt="William Zhao on the Pohono Trail in Yosemite National Park">
+			</div>
+			<div class="about-text">
+				<p>I&rsquo;m a 21 year old <strong class="accent">graphics programmer</strong> and <strong class="accent">C++ software engineer</strong>.</p>
+				<p>I&rsquo;m passionate about the intersection between art and computing.</p>
+				<p>Some topics I&rsquo;ve worked on are Procedural Animation, Game Engine Development, Real-Time Fluid Simulation, and VR interaction.</p>
+				<p>I got my B.S in Computer Science at USC in 2026. I will get my M.S in Computer Science at USC in 2027.</p>
+				<p>Some awards that I or my projects have received are a 2024 Yugo BAFTA Longlist, PlayStation Career Paths Scholarship, and 2024 Milan Indie Awards - Best VR.</p>
+				<p>During my free time, I enjoy hiking, cooking, and watching movies. If you ever bump into me, tell me about your favorite movie!</p>
+				<p>The picture on the left was taken on the Pohono Trail in Yosemite National Park.</p>
+			</div>
+		</div>
+	</section>
+
 	{# Figma: Section Header (2:273) + Experiences (2:266) #}
 	<section class="section" id="experience">
 		<div class="section-header"><h2>Experience</h2></div>
@@ -45,25 +64,6 @@ layout: base.njk
 				</div>
 			</article>
 			{% endfor %}
-		</div>
-	</section>
-
-	{# Figma: Section Header (10:138) + About (10:146) #}
-	<section class="section" id="about">
-		<div class="section-header"><h2>About</h2></div>
-		<div class="grid about">
-			<div class="about-image">
-				<img src="/about/media/AboutPhoto.jpg" alt="William Zhao on the Pohono Trail in Yosemite National Park">
-			</div>
-			<div class="about-text">
-				<p>I&rsquo;m a 21 year old <strong class="accent">graphics programmer</strong> and <strong class="accent">C++ software engineer</strong>.</p>
-				<p>I&rsquo;m passionate about the intersection between art and computing.</p>
-				<p>Some topics I&rsquo;ve worked on are Procedural Animation, Game Engine Development, Real-Time Fluid Simulation, and VR interaction.</p>
-				<p>I got my B.S in Computer Science at USC in 2026. I will get my M.S in Computer Science at USC in 2027.</p>
-				<p>Some awards that I or my projects have received are a 2024 Yugo BAFTA Longlist, PlayStation Career Paths Scholarship, and 2024 Milan Indie Awards - Best VR.</p>
-				<p>During my free time, I enjoy hiking, cooking, and watching movies. If you ever bump into me, tell me about your favorite movie!</p>
-				<p>The picture on the left was taken on the Pohono Trail in Yosemite National Park.</p>
-			</div>
 		</div>
 	</section>
 
