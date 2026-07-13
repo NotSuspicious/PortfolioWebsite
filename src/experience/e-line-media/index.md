@@ -13,7 +13,7 @@ links:
     url: https://store.steampowered.com/app/3922000/Neighborhoods/
   - label: Announcement Trailer
     url: https://youtu.be/UpH6HB-Km_0
-cover: media/Neighborhoods_Cover.png
+cover: media/Neighborhoods_Cover.jpeg
 contributions: Designing pedestrian behavior using ECS and an interior parallax mapping system for building windows.
 ---
 ## Description
@@ -55,9 +55,7 @@ I will update this section once I make more progress.
 ## Procedurally Generated Buildings
 I was tasked with creating procedural scaffolding when new buildings go under construction.
 
-
 *The scaffolding adapt to to the height and size of the building.*
-
 
 *Showcase of the scaffolding blueprint.*
 
