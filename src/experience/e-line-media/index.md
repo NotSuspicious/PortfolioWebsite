@@ -55,8 +55,10 @@ I will update this section once I make more progress.
 ## Procedurally Generated Buildings
 I was tasked with creating procedural scaffolding when new buildings go under construction.
 
+<iframe width="512" height="288" src="https://www.youtube.com/embed/DUp0LWBydow?si=kDnW26G0UGnMgvVi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 *The scaffolding adapt to to the height and size of the building.*
 
+<iframe width="512" height="288" src="https://www.youtube.com/embed/DJMmg0C1o80?si=e0p3cBgCFIvS-ESx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 *Showcase of the scaffolding blueprint.*
 
 As my onboarding task, I implemented randomized height-based building attachments, such as fire escapes and bulletin boards.
