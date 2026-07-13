@@ -304,6 +304,15 @@ a {
 	text-transform: uppercase;
 }
 
+.post-content h3 {
+	padding-top: 8px;
+	margin: 16px 0 8px;
+	font-family: var(--font-display);
+	font-weight: 500;
+	font-size: clamp(14px, 4.5vw, 20px);
+	text-transform: uppercase;
+}
+
 .post-content img {
 	margin: 8px 0;
 }
