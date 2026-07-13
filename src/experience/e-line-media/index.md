@@ -69,4 +69,5 @@ As my onboarding task, I implemented randomized height-based building attachment
 <img src="media/FireEscape_3Story.jpeg" alt="3 story buildings with fire escapes.">
 <img src="media/FireEscape_4Story.jpeg" alt="4 story buildings with fire escapes.">
 </div>
+
 *Fire Escapes are procedurally generated based on building height.*
