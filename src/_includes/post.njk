@@ -6,15 +6,22 @@ layout: base.njk
 	{% include "site-header.njk" %}
 	<article>
 		<header class="post-header">
-			<h1>{{ title }}</h1>
-			<p class="post-meta">
-				{% if role %}Role: <strong class="hl">{{ role }}</strong> at <strong class="hl">{{ company }}</strong>.<br>{% endif %}
-				{% if type %}{{ type }} &middot; {% endif %}{% if startDate %}{{ startDate | monthYear }} &ndash; {% endif %}{{ endDate | monthYear }}{% if skills %} &middot; Skills: {% for skill in skills %}<span class="hl">{{ skill }}</span>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}
-			</p>
-			{% if links %}
-			<p class="post-links">
-				{% for link in links %}<a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}
-			</p>
+			<div class="post-header-text">
+				<h1>{{ title }}</h1>
+				<p class="post-meta">
+					{% if role %}Role: <strong class="hl">{{ role }}</strong> at <strong class="hl">{{ company }}</strong>.<br>{% endif %}
+					{% if type %}{{ type }} &middot; {% endif %}{% if startDate %}{{ startDate | monthYear }} &ndash; {% endif %}{{ endDate | monthYear }}{% if skills %} &middot; Skills: {% for skill in skills %}<span class="hl">{{ skill }}</span>{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}
+				</p>
+				{% if links %}
+				<p class="post-links">
+					{% for link in links %}<a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}
+				</p>
+				{% endif %}
+			</div>
+			{% if cover %}
+			<div class="post-cover">
+				<img src="{{ page.url }}{{ cover }}" alt="{{ title }} cover art">
+			</div>
 			{% endif %}
 		</header>
 		<div class="post-content">
