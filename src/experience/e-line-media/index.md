@@ -14,13 +14,12 @@ links:
   - label: Announcement Trailer
     url: https://youtu.be/UpH6HB-Km_0
 cover: media/Neighborhoods_Cover.jpeg
-contributions: Designing pedestrian behavior using ECS and an interior parallax mapping system for building windows.
+contributions: Designing an interior parallax mapping system for building windows.
 ---
 ## Description
 **Neighborhoods** is a city-*fixer* game, spinning off the city-builder genre by focusing on revitalizing pre-existing communities instead of building one from scratch.
 
 As a C++ Gameplay Engineer Intern, I
-- Developed an **ECS-driven Crowd AI system** simulating pathfinding and daily routines for 1000s of agents.
 - Co-built an **interior parallax window system** with tech artist, lazy-rendering NPCs into 1000s of windows.
 - **Supported our VFX artists** by implementing VFX and driving feature requests for our procedurally-generated building system.
 ## Parallax Window System
@@ -47,11 +46,15 @@ Before I could assign poses, I need a set of animations to select from.
 
 Now when rendering a window, the window manager selects an animation based on the resident's satisfaction, sets the pose to the halfway point of the animation, and then proceeds to take a picture, all in a single tick.
 ### Third Iteration
-Next steps are to animate the residents within each window. This will require me to render animations into sprite sheets. I have a few concerns with gpu memory limitations.
-##  ECS-driven Crowd AI system
-I'm currently developing the pedestrian system, which is handled with Unreal's Mass Entity System. I'm currently tasked with navigating each pedestrian from the home to work, whether that be with by car, bus or on foot.
+I have animated the residents within each window by rendering animations into sprite sheets!
 
-I will update this section once I make more progress.
+<div class="media-grid">
+<img src="media/WSM_HugFlipbook.png" alt="Flipbook sprite sheet of a resident's hug animation.">
+<img src="media/WSM_ChefFlipbook.png" alt="Flipbook sprite sheet of a resident in a chef outfit animating.">
+</div>
+
+![A resident posing inside a building window](media/WSM_AnimatedWindow.png)
+
 ## Procedurally Generated Buildings
 I was tasked with creating procedural scaffolding when new buildings go under construction.
 
